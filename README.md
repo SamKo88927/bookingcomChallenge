@@ -1,11 +1,11 @@
 # bookingChallenge
-
+## Day3 UI挑戰 給想要從Day4直接開始的你
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
-
+## 在run npm start 記得先 npm i
 ### `npm start`
 
 Runs the app in the development mode.\
