@@ -1,8 +1,11 @@
+import Home from "./pages/Home";
+import "./app.scss"
 
 function App() {
+  
   return (
     <div className="App">
-      Hi 感覺這挑戰很難啊
+      <Home/>
     </div>
   );
 }

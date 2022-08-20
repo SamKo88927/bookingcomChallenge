@@ -1,0 +1,20 @@
+.feature {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;//新增的 
+    overflow: hidden;//新增的 
+    .container {
+        width: 100%;
+        max-width: 1024px;
+        .listTitle {
+            padding: 15px 10px;
+        }
+        .listItems {
+            padding: 0px 10px;
+            display: flex;//新增的 
+            overflow-x:scroll; //新增的 
+            gap: 10px;//新增的 
+        }
+    }
+}

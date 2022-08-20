@@ -1,0 +1,18 @@
+.CardContainer {
+    display: flex;
+    padding: 5px;
+    flex: 1;
+    position: relative;
+    .imgBg {
+        object-fit: cover;
+        width: 100%;
+        border-radius: 2px;
+    }
+    .itemInfo {
+        position: absolute;
+        top: 12px;
+        left: 22px;
+        color: white;
+        text-shadow: 2px 2px black;
+    }
+}
