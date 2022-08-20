@@ -169,7 +169,7 @@ export const Attractions=[
     }
 ]
 
-export const PopularHotels=[
+export const  PopularHotelsData=[
     {
         id:0,
         name:"帕特奧斯昂托艾斯特瓦",
