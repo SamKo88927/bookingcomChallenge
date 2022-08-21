@@ -1,4 +1,4 @@
-.SearchItm {
+.SearchItem {
     height: 240px; //整欄高
     width: 720px; //這邊都有算好
     display: flex;
@@ -14,7 +14,7 @@
         object-fit: cover;
         border-radius: 3px;
     }
-    .itmInfo {
+    .itemInfo {
         width: 505px; //200px+505px+gap 15px=總欄寬720px
         height: 210px; //240px欄高跟他差padding上下15px*2
 

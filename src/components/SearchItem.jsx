@@ -2,15 +2,14 @@ import React from 'react'
 import "./searchItem.scss"
 const SearchItem = ({active}) => {
   return (
-    <div className={`SearchItm ${active}`}>
+    <div className={`SearchItem ${active}`}>
       <img className="itemImg" src="https://cf.bstatic.com/xdata/images/hotel/square600/347072190.webp?k=74cb5ec7f0ef6a6b424dca16d22b2e0b62c5438fbeef2e9f56bed64167dddbad&o=&s=1" alt="" />
-      <div className="itmInfo">
+      <div className="itemInfo">
         <div className="infoTitle">
-          <h2 className='infoTitleH2'>
+          <h2>
             台南微醺文旅|老宅古城|漫遊體驗
           </h2>
           <div className='infoTitleRight'>
-            {/* {item.rate >= 9.5 ? "好極了" : "傑出"} */}
             傑出<br />
             1,223則評論
             <button className='infoTitleRate'>
