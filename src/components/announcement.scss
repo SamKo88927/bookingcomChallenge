@@ -1,0 +1,113 @@
+.announcement {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    .container {
+        max-width: 1024px;
+        width: 100%;
+        padding: 0 20px;
+        .checktext {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            input {
+                height: 20px;
+                width: 20px;
+                margin-right: 5px;
+            }
+        }
+        .infoDes {
+            border: 1px lightgrey solid;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0px 20px;
+            svg {
+                display: flex;
+                color: rgb(251, 144, 4);
+                background-color: bisque;
+                padding: 10px;
+                height: 20px;
+                width: 20px;
+                margin-right: 20px;
+            }
+        }
+        .discountInfo {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-radius: 5px;
+            height: 160px;
+            padding: 5px 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.145);
+            .left {
+                width: 150px;
+                img {
+                    display: flex;
+                    width: 120px;
+                }
+            }
+            .right {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                button {
+                    width: 80px;
+                    padding: 10px 5px;
+                    color: white;
+                    background-color: var(--primary-color);
+                    border: none;
+                    border-radius: 2px;
+                    cursor: not-allowed;
+                }
+            }
+        }
+      
+    }
+}
+
+.GlobalBanner {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px 20px;
+    height: 200px;
+    border: 1px lightgrey solid;
+    background-repeat: no-repeat;//背景圖導入方式
+    background-position: right;//背景圖是那個世界地圖
+    background-image: url("https://cf.bstatic.com/static/img/genius-banner-world-bg/2b5cdbad7b92073bc396b8b59d0bb421b3a01cba.png");
+    img {
+        display: flex;//左邊
+        width: 180px;
+    }
+    .BannerInfoDes {//右邊
+        display: flex;
+        flex-direction: column;
+        gap: 20px; //讓span title btn有間距
+        .Bannerbtn {
+            display: flex;
+            gap: 10px;//登入 註冊btn 有間距
+            button {
+                padding: 8px 15px;
+                border-radius: 2px;
+                color: rgb(53, 164, 127);
+                border: 1px rgb(53, 164, 127) solid;
+                background-color: white;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(53, 164, 127, 0.1);
+                }
+            }
+            button:last-child {
+                //做一下差別註冊不要有外匡 
+                //last-child是指btn的最後一個物件概念 
+                //這邊就兩個 登入與註冊 登入就firse-child註冊就last-child
+                border: none;
+            }
+        }
+    }
+}

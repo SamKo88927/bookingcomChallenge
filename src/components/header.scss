@@ -1,0 +1,129 @@
+.header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px;
+    position: relative; //是為了配合headerSearchBar的absolute
+    .headerContainer {
+        color: white;
+        width: 100%;
+        max-width: 1024px;
+        // background-color: rgb(104, 104, 248);
+        //container 不包括df 要讓 title des 自由往下排列
+        margin: 20px 0px 100px 0px; //margin 四個為上 左 下 右
+        .headerTitle {
+            font-size: 45px;
+        }
+        .headerDes {
+            margin-top: 10px;
+        }
+        .headerSearchBar {
+            display: flex;
+        }
+    }
+}
+
+.headerSearchBar {
+    position: absolute;
+    bottom: -30px;
+    height: 55px;
+    width: 95%;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(223, 130, 0);
+    border: none;
+    border-radius: 5px;
+    svg {
+        color: lightgray;
+        font-size: 24px;
+        margin-left: 10px;
+    }
+    input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 16px;
+        text-overflow: ellipsis;
+    }
+    .SearchBarItem:first-child {
+        //第一個SearchBarItem
+        width: calc(34% - 20px); //加上這個，可以讓”你要去哪裡“縮小的比別人快
+    }
+    .SearchBarItem {
+        height: 50px;
+        width: 320px;
+        margin-left: 2px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: black;
+        background-color: #fff;
+        border-radius: 2px;
+        cursor: pointer;
+        .calendar {
+            position: absolute;
+            top: 56px;
+            border: 1px lightgray solid;
+            box-shadow: 0px 0px 15px lightgray;
+        }
+    }
+    .SearchBarBtn {
+        border: none;
+        margin: 0px 2px 0px 2px;
+        width: 60px;
+        height: 50px;
+        border-radius: 2px;
+        background-color: var(--primary-color);
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.ConditionsContainer {
+    position: absolute;//一樣絕對定位
+    top: 60px;
+    right: 0;
+    width: auto;
+    background-color: white;
+    box-shadow: 0px 0px 15px lightgray;
+    border-radius: 5px;
+    padding: 10px 40px;
+    cursor: default; //靜止他一靠近就變point
+    .condition {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        //這邊將文字（小孩）與conditionCounter 分開 一左一右
+        width: 400px;
+        height: 60px;
+        p {//小孩下面 的<p>表顯示歲數
+            font-size: 14px;
+            color: gray;
+        }
+        .conditionCounter {
+            display: flex;
+            width: 100px;
+            justify-content: space-between;
+            //這邊左右分開的是 減號btn 數字 加號btn 
+            align-items: center;
+            //下上對齊
+            .conditionCounterButton{
+                width: 30px;
+                height: 30px;
+                border-radius: 2px;
+                color: var(--primary-color);
+                background-color: white;
+                border: 1px solid var(--primary-color);
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(53, 164, 127, 0.1);
+                     //我讓他滑鼠過去時會有淡淡的淺綠色 
+                }
+                &:disabled{
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

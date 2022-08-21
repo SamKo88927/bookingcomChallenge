@@ -1,0 +1,86 @@
+.footer {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(53, 164, 127);
+    .title {
+        font-weight: 100;
+        margin-top: 20px;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        color: white;
+        font-size: 24px;
+        padding-top: 15px;
+        span {
+            font-size: 16px;
+            color: rgb(41, 41, 41);
+        }
+    }
+    .emailcontainer {
+        padding: 20px;
+        max-width: 1024px;
+        width: 100%;
+        .wrapper {
+            display: flex;
+            padding: 0px 50px;
+            align-items: center;
+            .email {
+                font-weight: 100;
+                border: none;
+                border-radius: 5px;
+                height: 45px;
+                width: calc(65% - 25px);
+                font-size: 20px;
+                line-height: 28px;
+                margin-right: 5px;
+                padding-left: 15px;
+            }
+            button {
+                font-weight: 100;
+                width: 35%;
+                height: 45px;
+                border: none;
+                color: white;
+                border-radius: 2px;
+                font-size: 20px;
+                background-color: rgb(0, 62, 41);
+            }
+        }
+        .checktext {
+            padding: 15px 50px;
+            input {
+                margin-right: 5px;
+            }
+        }
+    }
+    .subcontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       justify-content: center;
+        height: 200px;
+        width: 100%;
+        background-color:rgb(0, 62, 41) ;
+        gap: 20px;
+        button{
+            display: flex;
+            width: 150px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border:1px white solid;
+            border-radius: 2px;
+            background-color: transparent;
+        }
+        hr {
+            width: 100%;
+        }
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+    }
+}

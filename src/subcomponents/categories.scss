@@ -1,0 +1,21 @@
+.categories{
+display: flex;
+gap: 10px;//新增的 
+    .item {          
+        img {
+            border-radius: 2px;
+            object-fit: cover;
+            width: 200px;
+            height: 150px;
+        }
+        .itemInfo {
+            padding: 5px 0px;
+            .title {
+                font-weight: 800;
+            }
+            .desc {
+                color: gray;
+            }
+        }
+    }
+}

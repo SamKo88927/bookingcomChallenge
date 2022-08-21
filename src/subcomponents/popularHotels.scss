@@ -1,0 +1,47 @@
+.popularHotels {
+    display: flex;
+    gap: 15px;
+    .item {
+        img {
+            display: flex;
+            width: 250px;
+            height: 230px; //讓他看起來比較扁扁胖胖可愛一點
+        }
+        .itemInfo {
+            .subTitle {
+                color: gray;
+                font-size: 12px;
+            }
+            .price {
+                color: black;
+                font-weight: 500;
+                padding: 2px 0px;
+            }
+            .rate {
+                align-items: center;
+                display: flex;
+                gap: 5px;
+                span {
+                    color: black;
+                }
+                p {
+                    font-size: 12px;
+                    color: gray;
+                }
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 700;
+                    height: 30px;
+                    width: 30px;
+                    border: none;
+                    background-color: var(--primary-color);
+                    border-radius: 5px 5px 5px 0px; //讓他左下角沒有圓角
+                }
+            }
+        }
+    }
+}

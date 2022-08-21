@@ -1,0 +1,88 @@
+.listContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    .listWrapper {
+        width: 100%;
+        max-width: 1024px;
+        gap: 20px;
+        display: flex;
+    }
+}
+.listSearch {
+    background-color: #ffc489;
+    padding: 5px;
+    border-radius: 2px;
+    position: sticky;
+    height: max-content;
+    top: 10px;
+    .searchTitle {
+        color: black;
+        background-color: #fd8915c6;
+        padding: 10px 10px;
+        border-radius: 1px;
+        font-size: 20px;
+    }
+}
+.listItem {
+    width: 250px;//這個為拉寬整個搜尋欄的250px，上面都沒有設置寬度
+    margin-top: 20px;//每個都取出高度20px的間距
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);//這個是label顏色讓他稍為不要那麼黑
+    .searchInput {
+        border: none;
+        padding: 10px 5px;
+        border-radius: 1px;
+    }
+    .dates {
+        background-color: #fff;
+        border: none;
+        border-radius: 2px;
+    }
+    .searchbtn {
+        padding: 10px;
+        border: none;
+        font-size: 20px;
+        color: #fff;
+        background-color: rgb(53, 164, 127);
+    }
+}
+
+.listItemLimitPrice {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    .searchInput {
+        border: 1px solid gray;
+    }
+}
+
+.listItmConditions {
+    display: flex;
+    background-color: #fff;
+    padding: 10px 5px;
+}
+
+
+
+
+.resultTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .map{
+        padding: 20px 25px;
+        background-color: #000;
+        border-radius: 2px;
+        background-image: url("https://cf.bstatic.com/psb/capla/static/media/map-entry-point.6b01012a.png");
+        button{
+            padding: 8px 15px;
+            border: none;
+            color: white;
+            background-color: var(--primary-color);
+        }
+    }
+}

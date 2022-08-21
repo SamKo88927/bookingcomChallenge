@@ -1,0 +1,114 @@
+.SearchItm {
+    height: 240px; //整欄高
+    width: 720px; //這邊都有算好
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid lightblue;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    padding: 0px 15px; //這邊上下
+    img {
+        height: 210px; //240px欄高跟他差padding上下15px*2
+        width: 200px;
+        object-fit: cover;
+        border-radius: 3px;
+    }
+    .itmInfo {
+        width: 505px; //200px+505px+gap 15px=總欄寬720px
+        height: 210px; //240px欄高跟他差padding上下15px*2
+
+        .infoTitle {
+            display: flex;
+            justify-content: space-between;
+            h2 {
+                font-size: 20px;
+                width: 300px;
+            }
+            .infoTitleRight {
+                display: flex;
+                gap: 5px; //9.5與傑出間距
+                text-align: right; //讓傑出等字眼靠右
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 700;
+                    height: 40px;
+                    width: 40px;
+                    border: none;
+                    background-color: var(--primary-color);
+                    border-radius: 5px 5px 5px 0px;
+                }
+            }
+        }
+        .infoDes {
+            .far {
+                color: var(--primary-color);
+                border-bottom: 1px solid var(--primary-color);
+                font-size: 12px;
+                margin-right: 5px;
+            }
+            .discount {
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 10px;
+                font-weight: 200;
+                padding: 5px;
+                border: none;
+                background-color: var(--primary-color);
+            }
+        }
+    }
+}
+
+.infoDetail {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; //整個都靠下
+    .detailLeft {
+        border-left: 3px solid lightgray;
+        padding: 15px 5px;
+        font-size: 12px;
+        .detailDes {
+            margin-top: 10px;
+            color: green;
+            b:last-child {
+                color: red;//剩一間警告
+            }
+        }
+    }
+    .detailRight {
+        font-size: 12px;
+        .btn {
+            margin-top: 10px; //把查看客房跟上面做一下區分
+            width: 200px;
+            color: white;
+            font-size: 18px;
+            padding: 5px 10px;
+            border: none;
+            background-color: rgb(255, 142, 4);
+            border-radius: 1px;
+        }
+        span {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .tax {
+            color: gray;
+        }
+    }
+}
+
+.active{
+    background-color:rgba(53, 164, 127,0.2) ;
+    box-shadow: 0px 0px 15px var(--primary-color);
+}
