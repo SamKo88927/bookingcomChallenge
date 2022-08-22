@@ -93,6 +93,10 @@
             border: none;
             background-color: rgb(255, 142, 4);
             border-radius: 1px;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(206, 114, 1);
+            }
         }
         span {
             display: flex;
