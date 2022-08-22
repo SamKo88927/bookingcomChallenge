@@ -14,21 +14,7 @@ const HotelsList = () => {
   const [destination, setDestination] = useState(locationSearchBarData.state?.destination);
   const [dates, setDates] = useState(locationSearchBarData.state?.dates);
   const [conditions, setConditions] = useState(locationSearchBarData.state?.conditions);
-  // const [destination, setDestination] = useState("");
-  // const [dates, setDates] = useState([
-  //   {
-  //     startDate: new Date(),
-  //     endDate: new Date(),
-  //     key: 'selection',
-  //   }
-  // ]);
-  // const [conditions, setConditions] = useState(
-  //   {
-  //     adult: 1, //初始人數,房間數為一
-  //     children: 0, //可以不一定要有小孩
-  //     room: 1,
-  //   }
-  // );
+
   return (
     <>
       <div>
@@ -41,7 +27,9 @@ const HotelsList = () => {
               </div>
               <div className="listItem">
                 <label>目的地／住宿名稱：{destination}</label>
-                <input type="text" className="searchInput" placeholder={destination===""?'要去哪裡?':destination} onChange={(e)=>setDestination(e.target.value)}/>
+                <input type="text" className="searchInput" 
+                placeholder={destination===""?'要去哪裡?':destination} 
+                onChange={(e)=>setDestination(e.target.value)}/>
               </div>
               <div className="listItem">
                 <label>入住/退房日期 {format(dates[0].startDate, "MM/dd/yyyy")} - {format(dates[0].endDate, "MM/dd/yyyy")}</label>
@@ -73,7 +61,8 @@ const HotelsList = () => {
                   <input type="text" className='searchInput' />
                 </div>
                   <div className="listItmConditions">
-                    <span className="SearchText" onClick={() => setOpenConditions(!openConditions)}  >{conditions.adult}位成人 · {conditions.children} 位小孩 · {conditions.room} 間房</span>
+                    <span className="SearchText" onClick={() => setOpenConditions(!openConditions)}  >
+                      {conditions.adult}位成人 · {conditions.children} 位小孩 · {conditions.room} 間房</span>
                   </div>
               </div>
               <div className="listItem">
