@@ -16,10 +16,13 @@
             justify-content: space-between; //分開左右半部
             .left {
                 display: flex;
-                span {
+                .logo {//logo 原是span
                     font-size: 20px;
                     font-weight: 500;
+                    color:inherit;//logo新加的防止變色
+                    text-decoration: none;//logo新加的防止變色
                 }
+                
             }
             .right {
                 display: flex;

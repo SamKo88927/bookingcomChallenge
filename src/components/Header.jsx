@@ -7,10 +7,16 @@ import { DateRange } from 'react-date-range';
 import * as locales from 'react-date-range/dist/locale';
 import format from 'date-fns/format';
 import "./header.scss"
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
-
+  const navigate=useNavigate()
+  
+  
   const [openConditions, setOpenConditions] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
+
+  const [destination, setDestination] = useState("");
+
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
@@ -25,6 +31,10 @@ const Header = () => {
       room: 1,
     }
   );
+ 
+ console.log(destination,dates,conditions)
+
+
   const handleCounter = (name, sign) => { 
     setConditions(prev => {
         return{
@@ -33,6 +43,12 @@ const Header = () => {
         } 
     })
 }
+
+
+const handleSearchBarSubmit =()=>{
+  navigate("/hotelsList", {state:{destination,dates,conditions}})
+}
+
   return (
     <div className='header'>
       <div className="headerContainer">
@@ -41,12 +57,10 @@ const Header = () => {
         </h1>
         <p className="headerDes">搜尋飯店、民宿及其他住宿類型的優惠…
           <br />Booking.com clone挑戰（為SamKo Demo使用不為盈利）</p>
-
-
         <div className="headerSearchBar">
           <div className="SearchBarItem">
             <FontAwesomeIcon icon={faBed} />
-            <input type="text" placeholder='你要去哪裡？' className='SearchInput' />
+            <input type="text" placeholder='你要去哪裡？' className='SearchInput' onChange={(e)=>setDestination(e.target.value)}/>
           </div>
           <div className="SearchBarItem">
             <FontAwesomeIcon icon={faCalendar} onClick={() => setOpenCalendar(!openCalendar)} />
@@ -116,7 +130,7 @@ const Header = () => {
 
 
           </div>
-          <button className='SearchBarBtn' >搜尋</button>
+          <button className='SearchBarBtn' onClick={handleSearchBarSubmit}>搜尋</button>
         </div>
       </div>
 

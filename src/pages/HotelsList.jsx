@@ -5,23 +5,30 @@ import "./hotelsList.scss"
 import { DateRange } from 'react-date-range'
 import { format } from 'date-fns'
 import * as locales from 'react-date-range/dist/locale';
+import { useLocation } from 'react-router-dom'
 const HotelsList = () => {
+  const locationSearchBarData =useLocation()
   const [openConditions, setOpenConditions] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
-  const [dates, setDates] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection',
-    }
-  ]);
-  const [conditions, setConditions] = useState(
-    {
-      adult: 1, //初始人數,房間數為一
-      children: 0, //可以不一定要有小孩
-      room: 1,
-    }
-  );
+  console.log(locationSearchBarData);
+  const [destination, setDestination] = useState(locationSearchBarData.state?.destination);
+  const [dates, setDates] = useState(locationSearchBarData.state?.dates);
+  const [conditions, setConditions] = useState(locationSearchBarData.state?.conditions);
+  // const [destination, setDestination] = useState("");
+  // const [dates, setDates] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: new Date(),
+  //     key: 'selection',
+  //   }
+  // ]);
+  // const [conditions, setConditions] = useState(
+  //   {
+  //     adult: 1, //初始人數,房間數為一
+  //     children: 0, //可以不一定要有小孩
+  //     room: 1,
+  //   }
+  // );
   return (
     <>
       <div>
@@ -33,8 +40,8 @@ const HotelsList = () => {
                 搜尋
               </div>
               <div className="listItem">
-                <label>目的地／住宿名稱：</label>
-                <input type="text" className="searchInput" placeholder='要去哪裡?'/>
+                <label>目的地／住宿名稱：{destination}</label>
+                <input type="text" className="searchInput" placeholder={destination===""?'要去哪裡?':destination} onChange={(e)=>setDestination(e.target.value)}/>
               </div>
               <div className="listItem">
                 <label>入住/退房日期 {format(dates[0].startDate, "MM/dd/yyyy")} - {format(dates[0].endDate, "MM/dd/yyyy")}</label>
