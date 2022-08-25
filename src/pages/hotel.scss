@@ -1,0 +1,247 @@
+.HotelContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px; //一樣往內縮
+    .HotelWrapper {
+        max-width: 1024px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; //這四塊大div都各自取件間距
+    }
+}
+.HotelHeaderBtn {
+    display: flex;
+    gap: 3px;
+    button {
+        border: none;
+        background-color: rgba(53, 164, 127, 0.5);
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 2px;
+        color: rgb(36, 104, 81);
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    svg {
+        //地標顏色 //愛心顏色...都改成同一顏色
+        color: #f65050;
+    }
+    .titleLeft {
+        span {
+            margin-right: 5px;
+            vertical-align: middle; //所有span的對齊以文字為主向下
+        }
+        .type {
+            color: white;
+            background-color: #00d8ff;
+            border-radius: 2px;
+            padding: 2px;
+        }
+        .hotelName {
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .recommend {
+            vertical-align: bottom; //以文字為主向下對齊就不使用middle了
+            background-color: #cbe5d8;
+            font-size: 12px;
+            border-radius: 15px;
+            padding: 5px 10px 5px 0px; //0px是為了讓svg小球的下層左邊的區塊內縮
+            svg {
+                width: 15px;
+                height: 15px;
+                padding: 2px;
+                color: var(--primary-color);
+                background-color: #fff;
+                border: 1px solid black;
+                border-radius: 50%;
+            }
+        }
+        .address {
+            font-size: 16px;
+            a {
+                font-size: 12px;
+                color: rgb(83, 129, 254);
+            }
+        }
+    }
+
+    .titleRight {
+        display: flex;
+        flex-direction: column; //有加這個
+        align-items: flex-end; //aic 變成當jc flex-end用
+        button {
+            border: none;
+            background-color: var(--primary-color);
+            padding: 5px 20px;
+            font-size: 16px;
+            border-radius: 2px;
+            color: white;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+.hotelDes {
+    display: flex;
+    gap: 20px; //左右兩邊hotelDesText與hotelDesPrice 的間距具
+    font-size: 12px;
+    margin-top: 10px;
+    .hotelDesText {
+        line-height: 2.5; //行距
+    }
+    .hotelDesPrice {
+        height: min-content;
+        padding: 10px;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: rgba(53, 164, 127, 0.5);
+        button {
+            width: 200px;
+            color: white;
+            font-size: 20px;
+            padding: 5px 10px;
+            border: none;
+            background-color: rgb(53, 164, 127);
+            border-radius: 2px;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+
+.popupcomment {
+    position: absolute; //觸碰區
+    top: 0px;
+    left: 0px;
+    z-index: 2; //這個代表圖層至少比下面img照片都還要多一層 
+    //就是最上方圖層才不會被蓋住看不見
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    .commentInfo {
+        display: none; //原本是display:flex
+        opacity: 0;
+    
+        height: 60px;
+        width: 250px;
+        border-radius: 2px;
+        background-color: #fff;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        .commentRate {
+            margin-left: 5px;//左邊間距空一下
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            height: 40px;
+            width: 40px;
+            border: none;
+            background-color: var(--primary-color);
+            border-radius: 5px 5px 5px 0px;
+        }
+    }
+}
+
+.hotelImgWrapper {
+    position: relative;
+    .hotelImg {
+        display:grid; 
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3px;
+        .Imgwrap:first-child {
+            grid-column: 1/3;
+            grid-row: 1/3;
+        }
+        .Imgwrap {
+            position: relative;
+            border-radius: 2px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+        .more {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+    }
+}
+
+.textIcon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+    svg {
+        color: green;
+    }
+    .wifi {
+        font-size: 14px;
+    }
+}
+.slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.613);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    .sliderWrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 80%;
+        }
+    }
+    svg {
+        color: gray;
+    }
+}
+.Xmark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.arrow {
+    margin: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}

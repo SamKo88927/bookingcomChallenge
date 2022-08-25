@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./searchItem.scss"
 const SearchItem = ({active}) => {
   return (
@@ -43,7 +44,9 @@ const SearchItem = ({active}) => {
               <span className="tax">
                 含稅費與其他費用
               </span>
-              <button className='btn'>查看客房供應情況</button>
+              <Link to="/hotels/imhotelrandomid123">
+              <button className='btn' >查看客房供應情況</button>
+              </Link>
             </div>
           </div>
         </div>
