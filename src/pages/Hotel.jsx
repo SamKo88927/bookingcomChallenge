@@ -41,8 +41,8 @@ const Hotel = () => {
       css: {
         display: "flex",
         opacity: 1,
-        ease: "power3.inOut",
       },
+       ease: "power3.inOut"
     })
   }
   //離開特效
@@ -51,8 +51,8 @@ const Hotel = () => {
       css: {
         display: "none",
         opacity: 0,
-        ease: "power3.inOut",
       },
+       ease: "power3.inOut"
 
     })
   }
