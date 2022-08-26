@@ -123,7 +123,18 @@
         }
     }
 }
-
+.textIcon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+    svg {
+        color: green;
+    }
+    .wifi {
+        font-size: 14px;
+    }
+}
 
 .popupcomment {
     position: absolute; //觸碰區
