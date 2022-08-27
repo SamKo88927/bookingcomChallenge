@@ -4,25 +4,31 @@ import "./navbar.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCar, faPlane, faTaxi, faToriiGate } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-const Navbar = () => {
+const Navbar = ({type}) => {
     return (
-        <div className='navbar'>
-            <div className="navbarContainer">
+        <div className={`navbar ${type}`}>
+            <div className="navbarContainer ">
                 <div className="lineOne">
                     <div className="left">
-
                         <Link to="/" className='logo'>
                             SAM.BOOKING
                         </Link>
-
                     </div>
                     <div className="right">
                         <button className='navButtonFlag' />
                         <button className="navButtonNotif">使用webpack測試</button>
+                        {  type=="auth" ? <></> :<>
+                        <Link to="/register">
                         <button className="navButton">註冊</button>
+                        </Link>  
+                        <Link to="/login">
                         <button className="navButton">登入</button>
+                        </Link>  
+                        </>
+                         }
                     </div>
                 </div>
+                {type=="auth"? <></> :
                 <div className="lineTwo">
                     <div className="item active">
                         <FontAwesomeIcon icon={faBed} />
@@ -45,7 +51,7 @@ const Navbar = () => {
                         <span >機場計程車</span>
                     </div>
                 </div>
-
+}
             </div>
         </div>
     )

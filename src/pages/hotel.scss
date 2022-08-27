@@ -124,12 +124,11 @@
     }
 }
 
-
 .popupcomment {
     position: absolute; //觸碰區
     top: 0px;
     left: 0px;
-    z-index: 2; //這個代表圖層至少比下面img照片都還要多一層 
+    z-index: 2; //這個代表圖層至少比下面img照片都還要多一層
     //就是最上方圖層才不會被蓋住看不見
     height: 300px;
     width: 300px;
@@ -137,7 +136,7 @@
     .commentInfo {
         display: none; //原本是display:flex
         opacity: 0;
-    
+
         height: 60px;
         width: 250px;
         border-radius: 2px;
@@ -146,7 +145,7 @@
         justify-content: flex-start;
         gap: 5px;
         .commentRate {
-            margin-left: 5px;//左邊間距空一下
+            margin-left: 5px; //左邊間距空一下
             display: flex;
             align-items: center;
             justify-content: center;
@@ -165,7 +164,7 @@
 .hotelImgWrapper {
     position: relative;
     .hotelImg {
-        display:grid; 
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 3px;
         .Imgwrap:first-child {
@@ -209,39 +208,66 @@
     }
 }
 .slider {
-    position: fixed;
+    position: fixed; //要讓他黏在整個頁面上
     top: 0;
-    left: 0;
+    left: 0;//並重新定義黏在頁面上的起點才能讓下面滿版
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.613);
-    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.613); //後面黑色遮罩的部分
+    z-index: 999; //使他圖層數最高，這樣一定會是在最上面
     display: flex;
     align-items: center;
+    justify-content: center;//在水平上下置中一下
     .sliderWrapper {
-        width: 100%;
-        height: 100%;
+        border-radius: 2px;
+        width: 90%;
+        height: 80%;//簡單設置一下視窗的長寬
+        background-color: #fff;
+    }
+}
+.wrapperTitle {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between; //將飯店名與 關閉左右分開
+    align-items: center;
+    border-bottom: 1px solid lightgray; //底線分隔線
+    .TitleName {
+        font-size: 20px;//排版一下飯店名
+        margin: 0 20px;
+    }
+    .CloseSign {//排版一下關閉icon等等的
+        margin: 0 20px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        img {
-            width: 80%;
+        gap: 10px;
+        cursor: pointer;
+        svg {
+            font-size: 30px;
+        }
+        &:hover {
+            color: var(--primary-color);
         }
     }
-    svg {
-        color: gray;
+}
+.wrapperBody {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 600px;
+        height: 500px;
+        border-radius: 5px;
+        user-select: none; //防止拖拉也防止到時候點擊的選取效果
     }
-}
-.Xmark {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.arrow {
-    margin: 20px;
-    font-size: 40px;
-    cursor: pointer;
+    .arrow {
+        margin: 0 20px;
+        font-size: 40px;
+        color: gray;
+        cursor: pointer;
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
 }

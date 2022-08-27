@@ -1,14 +1,16 @@
-import { faClipboardCheck, faHeartCircleCheck, faLocationDot, faPeopleGroup, faSmokingBan, faWifi } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faHeartCircleCheck, faLocationDot, faPeopleGroup, faSmokingBan, faWifi, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar'
 import { gsap } from "gsap";
 import "./hotel.scss"
 const Hotel = () => {
 
+  const [sliderIndex, setSiderIndex] = useState(0);
+  const [openSlider, setOpenSlider] = useState(false);
+
   let comments = useRef(null)
-  
   const photos = [
     {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -29,20 +31,26 @@ const Hotel = () => {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
     },
     {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
+      src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/231327417.jpg?k=168988bd68edf0d13697b0e9b8ae896dfefff105d54a4aec17bdbe8c3a76d5b1&o=&hp=1",
     },
     {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
+      src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/231327417.jpg?k=168988bd68edf0d13697b0e9b8ae896dfefff105d54a4aec17bdbe8c3a76d5b1&o=&hp=1",
     },
   ];
+
+  const clickSlider = (index) => {
+    setOpenSlider(true);
+    setSiderIndex(index);
+  }
+
 
   const handleHover = e => {
     gsap.to(comments, {
       css: {
         display: "flex",
         opacity: 1,
-        ease: "power3.inOut",
       },
+      ease: "power3.inOut"
     })
   }
   //離開特效
@@ -51,14 +59,43 @@ const Hotel = () => {
       css: {
         display: "none",
         opacity: 0,
-        ease: "power3.inOut",
       },
-
+      ease: "power3.inOut"
     })
+  }
+
+  const slideDirection = (direction) => {
+    let newSliderIndex;
+    let lastPicutre = photos.length - 1
+    if (direction == "left") {
+      sliderIndex == 0 ? newSliderIndex = lastPicutre: newSliderIndex = sliderIndex - 1
+
+      setSiderIndex(newSliderIndex)
+    } else {
+      sliderIndex == lastPicutre ? newSliderIndex = 0 : newSliderIndex = sliderIndex + 1
+      
+      setSiderIndex(newSliderIndex)
+    }
   }
   return (
     <div className='hotel'>
       <Navbar />
+      { openSlider &&
+      <div className="slider">
+        <div className="sliderWrapper">
+          <div className="wrapperTitle">
+          <div className='TitleName'>台南微醺文旅</div>
+          <span className="CloseSign" onClick={()=>setOpenSlider(false)}>關閉
+            <FontAwesomeIcon icon={faXmark}   /></span> 
+          </div>
+          <div className="wrapperBody">
+            <FontAwesomeIcon icon={faAngleLeft} className="arrow" onClick={()=>slideDirection("left")} />
+            <img src={photos[sliderIndex].src} alt="" />
+            <FontAwesomeIcon icon={faAngleRight} className="arrow" onClick={()=>slideDirection("right")}/>
+          </div>
+        </div>
+      </div>
+      }
       <div className="HotelContainer">
         <div className="HotelWrapper">
           <div className="HotelHeaderBtn">
@@ -85,7 +122,7 @@ const Hotel = () => {
           <div className="hotelImgWrapper">
 
             <div className="popupcomment" onMouseEnter={e => handleHover(e)} onMouseOut={e => handleHoverExit(e)} >
-              <div className='commentInfo' onMouseEnter={e => handleHover(e)} ref={e => (comments = e)} >
+              <div className='commentInfo' onMouseEnter={e => handleHover(e)}  ref={e => (comments = e)} >
                 <button className='commentRate'>
                   9.5
                 </button>
@@ -98,12 +135,12 @@ const Hotel = () => {
               {photos.slice(0, 6).map((item, i) => //不管他再怎麼多 如果剛好有到7張照片就可以觀看更多，並往上加
                 i >= 5 ?
                   <div className="Imgwrap" key={i}>
-                    <div className="more"  >{photos.length > 6 ? `+${photos.length - 6}張照片` : "觀看更多"}</div>
+                    <div className="more" onClick={() => clickSlider(i)} >{photos.length > 6 ? `+${photos.length - 6}張照片` : "觀看更多"}</div>
                     <img src={item.src} alt="img" />
                   </div>
                   :
                   <div className="Imgwrap" key={i}>
-                    <img src={item.src} alt="img" />
+                    <img onClick={() => clickSlider(i)} src={item.src} alt="img" />
                   </div>
               )}
             </div>

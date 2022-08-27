@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import HotelsList from "./pages/HotelsList";
 import Hotel from "./pages/Hotel";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hotelsList" element={<HotelsList />} />
           <Route path="/hotels/:id" element={<Hotel />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>

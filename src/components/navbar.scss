@@ -1,12 +1,16 @@
+
+.auth{
+height: 80px !important; //整個欄高改為80px
+}
 .navbar {
     width: 100%;
     height: 160px; //整個欄高
-    background-color: var(--primary-color);
     display: flex;
     justify-content: center;
+    background-color: var(--primary-color);
     .navbarContainer {
         width: 90%;
-        height: 100%;
+        height: 160px;//原100%
         max-width: 1024px;
         color: white;
         .lineOne {
