@@ -1,3 +1,5 @@
+import Hotel from "../models/Hotel.js"
+
 export const createHotel = async(req,res,next)=>{ //新增next
     const newHotel = new Hotel(req.body) 
     try {
@@ -34,5 +36,13 @@ export const deleteHotel = async(req,res,next)=>{
         res.status(200).json("刪除資料成功")
     }catch(error){
         next(errorMessage(500,"刪除失敗，請確認是否有其id",error)) //後來我們想要客製化的
+    }
+}
+export const getAllHotels = async(req,res,next)=>{
+    try{
+        const hotelsList = await Hotel.find()
+        res.status(200).json(hotelsList)
+    }catch(error){
+        next(errorMessage(500,"無法抓取所有飯店資料",error)) 
     }
 }

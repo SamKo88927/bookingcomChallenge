@@ -37,9 +37,9 @@ app.use(express.json())//讓上傳的req.body可以視為json
 
 ///middlewares中間代理商概念
 app.use("/api/v1/hotels",hotelsApiRoute)
-app.use("/api/v1/auth",roomsApiRoute)
-app.use("/api/v1/rooms",usersApiRoute)
-app.use("/api/v1/users",authApiRoute)
+app.use("/api/v1/rooms",roomsApiRoute)
+app.use("/api/v1/users",usersApiRoute)
+app.use("/api/v1/auth",authApiRoute)
 
 //如果上述ApiRoute傳接有問題可以來這邊回傳錯誤訊息
 app.use((error,res,next)=>{

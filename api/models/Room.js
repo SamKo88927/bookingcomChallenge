@@ -17,11 +17,12 @@ const RoomSchema = new mongoose.Schema({
         required:true,
     },
     roomNumbers:[{
-       number:Number, unavailbaleDates:[{type:Date}]
+       number:Number, 
+       unavailableDates:[{type:Date}],
     }],
-    
 },{timestamps:true})
 export default mongoose.model("Room",RoomSchema)
+
 
 // [
 //     {number:1022, unavilbaleDates:[01.02.2022,02.02.2023]}
