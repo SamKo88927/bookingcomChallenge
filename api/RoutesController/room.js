@@ -1,6 +1,7 @@
 import Hotel from "../models/Hotel.js"
 import Room from "../models/Room.js"
-
+import { errorMessage } from "../errorMessage.js"
+//這邊上面import 都要記得 而且也要記得加.js
 export const createRoom = async (req, res, next) => {
     const hotelId = req.params.hotelid;
     const newRoom = new Room(req.body)
