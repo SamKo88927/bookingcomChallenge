@@ -32,7 +32,7 @@ app.listen(port,()=>{
     console.log(`connected to ${port} backend`)
     //並要像npm start 一樣啟動它，
 })
-
+// app.use(cookieParser())
 app.use(express.json())//讓上傳的req.body可以視為json
 
 ///middlewares中間代理商概念
@@ -42,7 +42,7 @@ app.use("/api/v1/users",usersApiRoute)
 app.use("/api/v1/auth",authApiRoute)
 
 //如果上述ApiRoute傳接有問題可以來這邊回傳錯誤訊息
-app.use((error,res,next)=>{
+app.use((error,res, next )=>{
     const errorStatus =error.status || 500 ;
     const errorMessage =error.Message || "中間ApiRoute出錯";
     return res.status(errorStatus).json({ //return回去讓他可以被next(error) catch

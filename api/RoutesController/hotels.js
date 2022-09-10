@@ -1,3 +1,4 @@
+import { errorMessage } from "../errorMessage.js"
 import Hotel from "../models/Hotel.js"
 
 export const createHotel = async(req,res,next)=>{ //新增next
