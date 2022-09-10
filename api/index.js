@@ -32,7 +32,7 @@ app.listen(port,()=>{
     console.log(`connected to ${port} backend`)
     //並要像npm start 一樣啟動它，
 })
-// app.use(cookieParser())
+
 app.use(express.json())//讓上傳的req.body可以視為json
 
 ///middlewares中間代理商概念
