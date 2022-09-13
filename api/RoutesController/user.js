@@ -6,9 +6,15 @@ export const updateUser = async (req, res, next) => {
     const id = req.params.id;
     const body = req.body;
     try{
-        const updatedUser = await User.findByIdAndUpdate(id,{$set:body}
+    const updateUserNameWrong = await User.findOne({username:body.username})
+    const updateEmailWrong= await User.findOne({email:body.email})
+    const originalUser = await User.findById(id) // 找到原本要更新得使用者資料
+    if(updateUserNameWrong && updateUserNameWrong.id != originalUser.id )return(next(errorMessage(400, "錯誤，此名稱已使用")))
+    if(updateEmailWrong && updateEmailWrong.id != originalUser.id )return(next(errorMessage(400, "錯誤，此信箱已使用")))
+    
+    const updatedUser  = await User.findByIdAndUpdate(id,{$set:body}
             ,{new:true})
-        res.status(200).json(updatedUser)
+        res.status(200).json(updatedUser )
     } catch (error) {
         next(errorMessage(500,"更改用戶失敗",error))
     }
