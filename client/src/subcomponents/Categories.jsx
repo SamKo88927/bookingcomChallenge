@@ -1,6 +1,8 @@
 import React from 'react'
+import useFetch from '../hooks/useFetch'
 import "./categories.scss"
-const Categories = ({dataArray}) => {
+const Categories = ({dataArray,url}) => {
+  const {data,loading,error} =useFetch(url)
   return (
     <div className='categories'> 
       {dataArray.map((item, index) => 
@@ -11,7 +13,7 @@ const Categories = ({dataArray}) => {
               {item.name}
             </div>
             <div className="desc">
-              {item.amount}
+              {`${data[index]}間住宿`}
             </div>
           </div>
         </div>)}

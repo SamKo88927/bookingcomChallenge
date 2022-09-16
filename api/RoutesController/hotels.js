@@ -39,11 +39,43 @@ export const deleteHotel = async(req,res,next)=>{
         next(errorMessage(500,"刪除失敗，請確認是否有其id",error)) //後來我們想要客製化的
     }
 }
+//getAllHotels升級版，讓他能抓取全部資料也能依照query值去找想要的資料
 export const getAllHotels = async(req,res,next)=>{
+    const withQuery=req.query;
+    //如果url上有寫popularHotels＝true,popularHotels會回傳true 沒有寫就沒這條件
     try{
-        const hotelsList = await Hotel.find()
+        const hotelsList = await Hotel.find(
+            {
+              ...withQuery //...代表說只要找到有相關欄位且符合的
+            }
+        ).limit(7) //讓他回傳資料最多就七個
         res.status(200).json(hotelsList)
     }catch(error){
         next(errorMessage(500,"無法抓取所有飯店資料",error)) 
     }
 }
+//來統計各個type的種數
+export const amountOfType = async(req,res,next)=>{
+    const type = req.query.type.split(",")
+    try{
+        const list= await Promise.all(type.map(type=>{
+            return Hotel.countDocuments({type:type})
+        }))
+        res.status(200).json(list)
+    } catch (error) {
+        next(errorMessage(500,"無法抓取住宿種類",error)) 
+    }
+}
+//來統計各個cities的種數
+export const amountOfCities = async(req,res,next)=>{
+    const cities = req.query.cities.split(",")
+    try{
+        const list= await Promise.all(cities.map(city=>{
+            return Hotel.countDocuments({city:city})
+        }))
+        res.status(200).json(list)
+    } catch (error) {
+        next(errorMessage(500,"無法統計各個城市的提供住宿的數量",error)) 
+    }
+}
+

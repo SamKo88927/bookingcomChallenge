@@ -105,7 +105,7 @@ const Hotel = () => {
             <button>房客評價</button>
           </div>
 
-          <div className="title">
+          <div className="hotelTitle">
             <div className="titleLeft">
               <span className="type">飯店</span>
               <span className='hotelName'>台南微醺文旅</span>

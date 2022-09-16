@@ -26,11 +26,11 @@
     }
 }
 
-.title {
+.hotelTitle { //原來是title =>hotelTitle
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0px;
+    margin: 10px 0px; //改動
     svg {
         //地標顏色 //愛心顏色...都改成同一顏色
         color: #f65050;
