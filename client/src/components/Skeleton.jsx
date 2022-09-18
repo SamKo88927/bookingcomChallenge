@@ -20,7 +20,7 @@ const number = length
         <div className="amountSK" />
     );
 
-    if (type === "popularHotel") return Array(number).fill(<PopularHotelSkeleton />);
+    if (type === "popularHotel") return Array(number).fill(<PopularHotelSkeleton />).keys();
 
     if (type === "Amount") return (<AmountSkeleton />);
     //amount 不用是因為他有上面得data.js的UI內資料不像PopularHotels是整個傳過來的資料總數都不確定
