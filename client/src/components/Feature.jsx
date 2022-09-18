@@ -8,6 +8,7 @@ import useFetch from '../hooks/useFetch'
 const Feature = () => {
     //原來的全部資料查詢api
     //const {data,loading,error} =useFetch("/hotels")
+    
     const {data,loading,error} =useFetch("/hotels?popularHotel=true")
 
     const typeUrl=`/hotels/amountoftype?type=${CategoriesType.map((type)=>type.name)}`
@@ -35,7 +36,7 @@ const Feature = () => {
                     <h2>人氣民宿、公寓類型住宿</h2>
                 </div>
                 <div className="listItems">
-                    <PopularHotels dataArray={data}/>
+                    <PopularHotels dataArray={data} loading={loading}/>
                 </div>
             </div>
         </div>

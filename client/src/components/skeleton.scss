@@ -1,0 +1,54 @@
+@keyframes skeleton {
+    to {
+      opacity: 0.6;
+    }
+  }
+  
+.popularHotelSK {
+    position: relative;
+    .imgSK {
+        width: 250px;
+        height: 230px; //跟原本img一樣的長寬高
+        background-color:#ECECEC;
+        margin-bottom: 2px;
+        animation: skeleton 1s ease infinite alternate;
+    }
+    .InfoSK {
+        display: flex;
+        flex-direction: column;
+        gap:2px;
+        animation: skeleton 1s ease infinite alternate;
+        .titleSK {
+        width: 220px;
+        height: 25px; 
+        background-color:#ECECEC;
+        animation: skeleton 1s ease infinite alternate;
+        }
+        .subTitleSK {
+        width: 70px;
+        height: 15px; 
+        background-color:#ECECEC;
+        animation: skeleton 1s ease infinite alternate;
+        }
+        .priceSK {
+            width: 150px;
+            height: 20px; 
+            background-color:#ECECEC;
+            animation: skeleton 1s ease infinite alternate;
+        }
+        .rateAndCommentSK {
+            width: 190px;
+            height: 25px; 
+            background-color:#ECECEC;
+            animation: skeleton 1s ease infinite alternate;
+        }
+    }
+}
+.amountSK {
+    position: relative;
+    width: 150px;
+    height: 30px; 
+    background-color:#ECECEC;
+    animation: skeleton 1s ease infinite alternate;
+}
+
