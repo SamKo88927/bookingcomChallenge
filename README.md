@@ -1,5 +1,5 @@
 # bookingChallenge
-# Day5挑戰UI挑戰 給想要從Day6直接開始的你 
+# Day5~7挑戰UI挑戰 給想要在這邊練習UI的你 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
