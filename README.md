@@ -3,6 +3,7 @@
 ## Day 8 鐵人挑戰 GOGOGO
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 先 `npm i` 再 `npm start`
 ## Available Scripts
 
 In the project directory, you can run:
