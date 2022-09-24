@@ -40,12 +40,12 @@ export const login = async (req,res,next)=>{
     // 現在要來處理我們登入以後產生一個專屬於這個用戶的TOKEN憑證
     
     const token = jwt.sign({id: userData._id, isAdmin: userData.isAdmin },process.env.JWT) //process.env.JWT就是你自己知道並設立的金鑰
-
+    const {password, isAdmin, ...userDetails} =userData._doc;
     res
     .cookie('JWT_token',token,{
         httpOnly: true
     })
-    .status(200).json(`${userData.username}登入成功`)
+    .status(200).json({userDetails})
 
     }catch(error)
     {

@@ -1,27 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./searchItem.scss"
-const SearchItem = ({active}) => {
+const SearchItem = ({active,dataDetail,conditions,dates}) => {
   return (
-    <div className={`SearchItem ${active}`}>
-      <img className="itemImg" src="https://cf.bstatic.com/xdata/images/hotel/square600/347072190.webp?k=74cb5ec7f0ef6a6b424dca16d22b2e0b62c5438fbeef2e9f56bed64167dddbad&o=&s=1" alt="" />
+     <div className={`SearchItem ${active}`}>
+      <img className="itemImg" src={dataDetail.photos[0]} alt="" />
       <div className="itemInfo">
         <div className="infoTitle">
           <h2>
-            台南微醺文旅|老宅古城|漫遊體驗
+          {dataDetail.name}
           </h2>
           <div className='infoTitleRight'>
-            傑出<br />
-            1,223則評論
+          {dataDetail.rating<9.5 ? "傑出":"極致好評"} <br />
+            {dataDetail.comments}則評論
             <button className='infoTitleRate'>
-              9.5
+            {dataDetail.rating}
             </button>
           </div>
         </div>
         <div className="infoDes">
-          <span className="far">中西區 台南 400公尺遠</span>
+          <span className="far">{dataDetail.distance}</span>
           <span className="discount">免費專機接送</span>
-          
           <div className="infoDetail">
             <div className="detailLeft">
               <div className="equipment">
@@ -36,10 +35,10 @@ const SearchItem = ({active}) => {
             </div>
             <div className="detailRight">
               <span className="optionDes">
-                五晚、1位
+         {conditions.adult} 位大人 {conditions.children!=0 && `、${conditions.children} 位小孩`}
               </span>
               <span className="price">
-                TWD 4534
+                TWD {dataDetail.cheapestPrice}
               </span>
               <span className="tax">
                 含稅費與其他費用
@@ -51,9 +50,7 @@ const SearchItem = ({active}) => {
           </div>
         </div>
       </div>
-
-    </div>
-
+    </div> 
   )
 }
 

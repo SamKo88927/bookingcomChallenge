@@ -52,3 +52,55 @@
     animation: skeleton 1s ease infinite alternate;
 }
 
+.animation {
+    border-radius: 3px;
+    background-color: #d8d8d8;
+    animation: skeleton 1s ease infinite alternate;
+}
+.SearchItemSK {
+    height: 240px; //整欄高
+    width: 720px; //這邊都有算好
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background-color: #ececec;
+    animation: skeleton 1s ease infinite alternate;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 20px;
+    .imgSK {
+        height: 210px; //240px欄高跟他差padding上下15px*2
+        width: 200px;
+    }
+    .InfoSK {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 8px;
+        height: 210px; //240px欄高跟他差padding上下15px*2
+        width: 480px;
+        .titleSK {
+            width: 300px;
+            height: 45px;
+        }
+        .subTitleSK {
+            width: 200px;
+            height: 30px;
+        }
+        .decSK {
+            width: 150px;
+            height: 30px;
+        }
+        .rateAndCommentSK {
+            width: 190px;
+            height: 30px;
+        }
+        .priceSK {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 200px;
+            height: 45px;
+        }
+    }
+}

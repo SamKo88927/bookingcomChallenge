@@ -44,11 +44,13 @@ app.use("/api/v1/users",usersApiRoute)
 app.use("/api/v1/auth",authApiRoute)
 
 //如果上述ApiRoute傳接有問題可以來這邊回傳錯誤訊息
-app.use((error,res, next )=>{
+app.use((error,req,res, next )=>{
     const errorStatus =error.status || 500 ;
-    const errorMessage =error.Message || "中間ApiRoute出錯";
+    const errorMessage =error.message || "中間ApiRoute出錯";
+    const errorDetail = error.detail
     return res.status(errorStatus).json({ //return回去讓他可以被next(error) catch
         status:errorStatus,
-        Message:errorMessage,
+        message:errorMessage,
+        detail:errorDetail
     })
 })

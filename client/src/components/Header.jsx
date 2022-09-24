@@ -1,6 +1,6 @@
 import { faBed, faCalendar, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
@@ -8,15 +8,15 @@ import * as locales from 'react-date-range/dist/locale';
 import format from 'date-fns/format';
 import "./header.scss"
 import { useNavigate } from 'react-router-dom';
+import { new_Options } from '../constants/actionTypes';
+import { OptionsContext } from '../context/OptionsContext';
 const Header = () => {
   const navigate=useNavigate()
   
-  
+  const { city,date,options,dispatch } = useContext(OptionsContext);
   const [openConditions, setOpenConditions] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
-
-  const [destination, setDestination] = useState("");
-
+  const [destination, setDestination] = useState(city);
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
@@ -24,17 +24,7 @@ const Header = () => {
       key: 'selection',
     }
   ]);
-  const [conditions, setConditions] = useState(
-    {
-      adult: 1, //初始人數,房間數為一
-      children: 0, //可以不一定要有小孩
-      room: 1,
-    }
-  );
- 
- console.log(destination,dates,conditions)
-
-
+  const [conditions, setConditions] = useState(options);
   const handleCounter = (name, sign) => { 
     setConditions(prev => {
         return{
@@ -44,8 +34,8 @@ const Header = () => {
     })
 }
 
-
 const handleSearchBarSubmit =()=>{
+  dispatch({type:new_Options,payload:{city:destination,date:dates,options:conditions}})
   navigate("/hotelsList", {state:{destination,dates,conditions}})
 }
 

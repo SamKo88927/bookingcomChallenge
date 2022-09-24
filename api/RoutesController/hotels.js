@@ -39,14 +39,17 @@ export const deleteHotel = async(req,res,next)=>{
         next(errorMessage(500,"刪除失敗，請確認是否有其id",error)) //後來我們想要客製化的
     }
 }
+
 //getAllHotels升級版，讓他能抓取全部資料也能依照query值去找想要的資料
 export const getAllHotels = async(req,res,next)=>{
-    const withQuery=req.query;
+    const {lowestPrice,highestPrice,...withQuery} = req.query;
     //如果url上有寫popularHotels＝true,popularHotels會回傳true 沒有寫就沒這條件
     try{
         const hotelsList = await Hotel.find(
             {
-              ...withQuery //...代表說只要找到有相關欄位且符合的
+              ...withQuery,
+              cheapestPrice:{$gt:lowestPrice || 0,
+              $lt:highestPrice || 9999} //這邊一定要這樣打因為涉及到兩個fetch 如果沒有填｜｜會出現沒有值的問題
             }
         ).limit(7) //讓他回傳資料最多就七個
         res.status(200).json(hotelsList)
@@ -54,6 +57,7 @@ export const getAllHotels = async(req,res,next)=>{
         next(errorMessage(500,"無法抓取所有飯店資料",error)) 
     }
 }
+
 //來統計各個type的種數
 export const amountOfType = async(req,res,next)=>{
     const type = req.query.type.split(",")

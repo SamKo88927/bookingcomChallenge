@@ -17,7 +17,7 @@ import axios from "axios"
         setLoading(false);
        }
        fetchData()
-    },[])
+    },[url])
     return {data,loading, error}
 }
 
