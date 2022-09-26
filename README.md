@@ -1,5 +1,5 @@
 # bookingChallenge
-# UI介面完成版 day1 ~ day11
+# UI介面完成版 Day1 ~ Day11
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
