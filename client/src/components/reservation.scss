@@ -1,0 +1,96 @@
+.Reservation {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.576);
+    z-index: 999;
+    .container {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        .wrapper {
+            margin: 20px;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid lightgrey;
+            padding: 20px;
+            border-radius: 5px;
+            .title{
+                width: 100%;
+                display: grid;
+                grid-template-columns: 3fr 1.2fr 0.1fr;
+                border-bottom: 1px solid lightgray;
+                svg {
+                    font-size: 25px;
+                }
+            }
+            .body {
+                .roomTitle {
+                    margin: 10px 0px;
+                    justify-content: space-around;
+                    background-color: rgb(53, 164, 127);
+                    color: white;
+                    padding: 5px 2px;
+                    border-radius: 2px;
+                    align-items: center;
+                    text-align: center;
+                    display: grid;
+                    grid-template-columns:1fr 0.5fr 0.5fr 1fr 1fr 0.3fr;
+                }
+                .roomTitle>div:first-child{
+                    border-left:none;
+                }
+                .roomTitle>div{
+                    border-left: 1px solid white;
+                }
+                .roomData {
+                    display: grid;
+                    grid-template-columns: 4fr 0.3fr;
+                    min-height: 200px;
+                    gap: 2px;
+                    .roomColumn {
+                        .roomInfo {
+                            padding: 5px 0px;
+                            border-bottom: 1px solid lightgray;
+                            display: grid;
+                            grid-template-columns: 1fr 0.5fr 0.5fr 1fr 1fr;
+                         }
+                         .roomInfo:last-child {
+                            border-bottom: none;
+                         }
+                         .roomInfo>div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 50px;
+                             border-left: 1px solid lightgray;
+                             input{
+                                margin-right: 5px;
+                             }
+                         }
+                         .roomInfo>div:first-child{
+                            border-left: none;
+                        }
+                    }
+                    .reservationbtn {
+                        display: flex;
+                        border-radius: 2px;
+                        color: rgb(53, 164, 127);
+                        background-color: white;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid rgb(53, 164, 127);
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgba(53, 164, 127, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

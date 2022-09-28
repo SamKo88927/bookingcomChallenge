@@ -12,7 +12,6 @@ export const createHotel = async(req,res,next)=>{ //新增next
 }
 export const getHotel = async(req,res,next)=>{
     const id = req.params.id;
-    next()
     try{
        const getHotel = await Hotel.findById(id)
         res.status(200).json(getHotel)

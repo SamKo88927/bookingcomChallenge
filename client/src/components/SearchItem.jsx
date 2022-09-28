@@ -1,20 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ReservationDatesAndPrice } from '../datesCalculate'
+
 import "./searchItem.scss"
-const SearchItem = ({active,dataDetail,conditions,dates}) => {
+
+const SearchItem = ({ active, dataDetail, conditions, dates }) => {
+
+  const hotelsPrice = dataDetail.cheapestPrice
+  const { DatesLength, totalHotelsPrice } = ReservationDatesAndPrice(dates[0]?.startDate, dates[0]?.endDate, hotelsPrice)
   return (
-     <div className={`SearchItem ${active}`}>
+    <div className={`SearchItem ${active}`}>
       <img className="itemImg" src={dataDetail.photos[0]} alt="" />
       <div className="itemInfo">
         <div className="infoTitle">
           <h2>
-          {dataDetail.name}
+            {dataDetail.name}
           </h2>
           <div className='infoTitleRight'>
-          {dataDetail.rating<9.5 ? "傑出":"極致好評"} <br />
+            {dataDetail.rating < 9.5 ? "傑出" : "極致好評"} <br />
             {dataDetail.comments}則評論
             <button className='infoTitleRate'>
-            {dataDetail.rating}
+              {dataDetail.rating}
             </button>
           </div>
         </div>
@@ -35,22 +41,23 @@ const SearchItem = ({active,dataDetail,conditions,dates}) => {
             </div>
             <div className="detailRight">
               <span className="optionDes">
-         {conditions.adult} 位大人 {conditions.children!=0 && `、${conditions.children} 位小孩`}
+              {DatesLength== 0?<>請先選擇住宿日期</> : `總共 ${DatesLength} 晚`}
+                <br/>{conditions.adult} 位大人 {conditions.children != 0 && `、${conditions.children} 位小孩`}
               </span>
               <span className="price">
-                TWD {dataDetail.cheapestPrice}
+                {DatesLength== 0 ? `TWD ${dataDetail.cheapestPrice} 價格`:`TWD ${totalHotelsPrice} 價格`}
               </span>
               <span className="tax">
                 含稅費與其他費用
               </span>
-              <Link to="/hotels/imhotelrandomid123">
-              <button className='btn' >查看客房供應情況</button>
+              <Link to={`/hotels/${dataDetail._id}`}>
+                <button className='btn' >查看客房供應情況</button>
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   )
 }
 

@@ -10,21 +10,24 @@ import { OptionsContext } from '../context/OptionsContext'
 import { new_Options } from '../constants/actionTypes'
 import useFetch from '../hooks/useFetch'
 import Skeleton from '../components/Skeleton'
+
 const HotelsList = () => {
   const locationSearchBarData = useLocation()
   const [openConditions, setOpenConditions] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(false);
   const [destination, setDestination] = useState(locationSearchBarData.state?.destination);
-  const [dates, setDates] = useState(locationSearchBarData.state?.dates);
-  const [conditions, setConditions] = useState(locationSearchBarData.state?.conditions);
-  
-  const { city, date, options,dispatch } = useContext(OptionsContext)
 
+  const [dates, setDates] = useState(locationSearchBarData.state?.dates);
+
+  const [conditions, setConditions] = useState(locationSearchBarData.state?.conditions);
+
+  const { city, date, options,dispatch } = useContext(OptionsContext)
+  
   const [lowestPrice, setLowestPrice] = useState("");
   const [highestPrice, setHighestPrice] = useState("");
 
 const searchUrl = 
- `/hotels?${destination ? "city=" + destination : "popularHotel=true"} &lowestPrice=${lowestPrice} &highestPrice=${highestPrice}`
+ `/hotels?${destination ? "city=" + destination : "popularHotel=true"}&lowestPrice=${lowestPrice}&highestPrice=${highestPrice}`
 
 const [fetchDataUrl,setFetchDataUrl]=useState(searchUrl)//useFetch要能夠重新搜尋就改動url讓他可以重整
 const {data,loading,error} =useFetch(fetchDataUrl)
@@ -33,6 +36,7 @@ const handleClick = () => {
   dispatch({ type: new_Options, payload: { city: destination, date: dates, options: conditions } })
  setFetchDataUrl(searchUrl)
 }
+
   return (
     <>
       <div>
@@ -100,7 +104,7 @@ const handleClick = () => {
               {loading ?   <Skeleton type="SearchItemSK" length={3}/> :
               data.map((item,index) =>
                 <SearchItem active={index==0 && "active"} 
-                 key={item._id} dataDetail={item}   conditions={conditions} dates={dates} />
+                 key={item._id} dataDetail={item}   conditions={options} dates={date} />
               )
              }
          
