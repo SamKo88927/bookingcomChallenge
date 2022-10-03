@@ -38,7 +38,7 @@
                     align-items: center;
                     text-align: center;
                     display: grid;
-                    grid-template-columns:1fr 0.5fr 0.5fr 1fr 1fr 0.3fr;
+                    grid-template-columns: 1fr 0.5fr 0.5fr 1fr 1fr 0.3fr;
                 }
                 .roomTitle>div:first-child{
                     border-left:none;
@@ -87,6 +87,9 @@
                         cursor: pointer;
                         &:hover {
                             background-color: rgba(53, 164, 127, 0.1);
+                        }
+                        &:disabled{
+                            cursor: not-allowed;
                         }
                     }
                 }

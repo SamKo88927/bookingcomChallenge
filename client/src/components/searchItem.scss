@@ -97,6 +97,9 @@
             &:hover {
                 background-color: rgb(206, 114, 1);
             }
+            &:disabled{
+                cursor: not-allowed;
+            }
         }
         span {
             display: flex;

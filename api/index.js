@@ -6,6 +6,7 @@ import hotelsApiRoute from "./ApiRoutes/hotels.js"
 import roomsApiRoute from "./ApiRoutes/rooms.js"
 import usersApiRoute from "./ApiRoutes/users.js"
 import authApiRoute from "./ApiRoutes/auth.js"
+import orderApiRoute from "./ApiRoutes/order.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 const app = express()
@@ -42,6 +43,7 @@ app.use("/api/v1/hotels",hotelsApiRoute)
 app.use("/api/v1/rooms",roomsApiRoute)
 app.use("/api/v1/users",usersApiRoute)
 app.use("/api/v1/auth",authApiRoute)
+app.use("/api/v1/order",orderApiRoute)
 
 //如果上述ApiRoute傳接有問題可以來這邊回傳錯誤訊息
 app.use((error,req,res, next )=>{

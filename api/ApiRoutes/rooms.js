@@ -1,6 +1,6 @@
 import express from "express"
-import { createRoom, deleteRoom, getAllRooms, getHotelRooms, getRoom, updatedRoom } from "../RoutesController/room.js";
-import { verifyAdmin } from "../JWT_Token.js";
+import { createRoom, deleteRoom, getAllRooms, getHotelRooms, getRoom, updatedRoom, updatedRoomDates } from "../RoutesController/room.js";
+import { verifyAdmin, verifyUser } from "../JWT_Token.js";
 
 const router = express.Router()
 
@@ -9,6 +9,10 @@ const router = express.Router()
 router.post("/:hotelid",verifyAdmin,createRoom);
 //更改room updatedRoom
 router.put("/:id",verifyAdmin,updatedRoom)
+
+//一樣是更新但我們只更新上傳unavailableDates的資料
+router.put("/reservartiondates/:id",verifyUser,updatedRoomDates)
+
 //刪除room
 router.delete("/:hotelid/:id",verifyAdmin,deleteRoom)
 //讀取單筆room 資料 不用hotelid

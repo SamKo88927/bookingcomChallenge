@@ -1,11 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReservationDatesAndPrice } from '../datesCalculate'
-
 import "./searchItem.scss"
 
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
 const SearchItem = ({ active, dataDetail, conditions, dates }) => {
-
+  const ItemTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#F5544A',
+      padding: 10,
+    },
+  }));
   const hotelsPrice = dataDetail.cheapestPrice
   const { DatesLength, totalHotelsPrice } = ReservationDatesAndPrice(dates[0]?.startDate, dates[0]?.endDate, hotelsPrice)
   return (
@@ -41,18 +49,26 @@ const SearchItem = ({ active, dataDetail, conditions, dates }) => {
             </div>
             <div className="detailRight">
               <span className="optionDes">
-              {DatesLength== 0?<>請先選擇住宿日期</> : `總共 ${DatesLength} 晚`}
-                <br/>{conditions.adult} 位大人 {conditions.children != 0 && `、${conditions.children} 位小孩`}
+                {DatesLength == 0 ? <>請先選擇住宿日期</> : `總共 ${DatesLength} 晚`}
+                <br />{conditions.adult} 位大人 {conditions.children != 0 && `、${conditions.children} 位小孩`}
               </span>
               <span className="price">
-                {DatesLength== 0 ? `TWD ${dataDetail.cheapestPrice} 價格`:`TWD ${totalHotelsPrice} 價格`}
+                {DatesLength == 0 ? `TWD ${dataDetail.cheapestPrice} 價格` : `TWD ${totalHotelsPrice} 價格`}
               </span>
               <span className="tax">
                 含稅費與其他費用
               </span>
-              <Link to={`/hotels/${dataDetail._id}`}>
-                <button className='btn' >查看客房供應情況</button>
-              </Link>
+
+              {DatesLength == 0 ?
+                <ItemTooltip title="請先輸入住宿日期，並按左側 搜尋 查看結果" followCursor>
+                  <button className='btn' >查看客房供應情況</button>
+                </ItemTooltip>
+                :
+                <Link to={`/hotels/${dataDetail._id}`}>
+                  <button className='btn' >查看客房供應情況</button>
+                </Link>
+              }
+
             </div>
           </div>
         </div>

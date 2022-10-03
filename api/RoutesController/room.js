@@ -21,7 +21,6 @@ export const createRoom = async (req, res, next) => {
         next(errorMessage(500,"room的上傳失敗，可能為格式錯誤",error)) 
     }
 }
-
 export const updatedRoom = async (req, res, next) => {
     const roomId = req.params.id;
     try{
@@ -32,6 +31,25 @@ export const updatedRoom = async (req, res, next) => {
         next(errorMessage(500,"room的更新失敗，可能為格式錯誤或是找不到其ID",error)) 
     }
 }
+
+export const updatedRoomDates = async (req, res, next) => {
+    const roomNumberId = req.params.id;
+    const dates = req.body.dates;
+    try{
+        const updatedRoomDates = await Room.updateOne(
+            { "roomNumbers._id": roomNumberId  },
+            {
+              $push: {
+                "roomNumbers.$.unavailableDates": dates
+              },
+            }
+          );
+        res.status(200).json(updatedRoomDates)
+    } catch (error) {
+        next(errorMessage(500,"預訂日期更新失敗，可能為格式錯誤或是找不到其ID",error)) 
+    }
+}
+
 export const deleteRoom = async (req, res, next) => {
    const hotelId = req.params.hotelid;
    const roomId =req.params.id;
