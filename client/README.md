@@ -2,6 +2,8 @@
 # current version
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 如要啟動Api 請先連接自身mongoDB與更改自身環境變數
+
 ## Available Scripts
 
 In the project directory, you can run:
