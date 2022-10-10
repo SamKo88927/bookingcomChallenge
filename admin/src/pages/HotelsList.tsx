@@ -1,12 +1,13 @@
 import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids';
 
-import {  hotelsData, hotelsGrid } from '../data/dummy';
+// import {  hotelsData, hotelsGrid } from '../data/dummy';
+
 import { Header } from '../components';
 import useFetch from '../hooks/useFetch';
-
+import { hotelsGrid } from '../data/HotelData';
 const HotelsList = () => {
-  const {data,loading,error} =useFetch("/api/v1/hotel")
+  const {data,loading,error} =useFetch("/hotels")
   console.log(data)
   const editing = { allowDeleting: true, allowEditing: true };
   return (
@@ -14,7 +15,7 @@ const HotelsList = () => {
       <Header category="管理列表" title="飯店分頁" />
       <GridComponent
         id="gridcomp"
-        dataSource={hotelsData}
+        dataSource={data}
         allowPaging
         allowSorting
         allowExcelExport
