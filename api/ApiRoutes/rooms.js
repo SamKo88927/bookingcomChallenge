@@ -1,5 +1,5 @@
 import express from "express"
-import { createRoom, deleteRoom, getAllRooms, getHotelRooms, getRoom, updatedRoom, updatedRoomDates } from "../RoutesController/room.js";
+import { createRoom, deleteRoom, getAllRooms, getHotelRooms, getRoom, getRoomData, updatedRoom, updatedRoomDates } from "../RoutesController/room.js";
 import { verifyAdmin, verifyUser } from "../JWT_Token.js";
 
 const router = express.Router()
@@ -17,7 +17,9 @@ router.put("/reservartiondates/:id",verifyUser,updatedRoomDates)
 router.delete("/:hotelid/:id",verifyAdmin,deleteRoom)
 //讀取單筆room 資料 不用hotelid
 //是因為會多此一舉roomid來抓
-router.get("/:id",getRoom)
+router.get("/find/:id",getRoom)
+
+router.get("/findroom/:id",getRoomData)
 //抓取rooms所有資料
 router.get("/",getAllRooms)
 //抓取一個hotel 的rooms所有資料

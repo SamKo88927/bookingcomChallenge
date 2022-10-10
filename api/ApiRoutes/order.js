@@ -1,5 +1,5 @@
 import express from "express"
-import { createOrder, deleteAllOrder, deleteOrder, getAllOrders, getOrder, updatedOrder } from "../RoutesController/order.js"
+import { createOrder, deleteAllOrder, deleteOrder, getAllOrders, getOrder, getOrderData, updatedOrder } from "../RoutesController/order.js"
 //這邊前面的url是/api/v1/Order
 const router = express.Router()
 //創建第一筆order資料
@@ -14,4 +14,6 @@ router.delete("/:id",deleteOrder)
 router.delete("/",deleteAllOrder)
 //抓取所有order資料
 router.get("/",getAllOrders)
+//抓取所有order資料name
+router.get("/data/",getOrderData)
 export default router

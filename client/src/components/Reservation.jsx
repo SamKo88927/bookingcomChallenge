@@ -23,7 +23,8 @@ const Reservation = ({ openSetting, hotelid, DatesLength }) => {
     const [roomNumber, setRoomNumber] = useState([])
 
     const [orderData, setOrderData] = useState({
-        userId: user._id,
+        //user._id,=>user.name,
+        userId: user.name,
         hotelId: hotelid,
         RoomNumberId: [],
         ReservationDates: [

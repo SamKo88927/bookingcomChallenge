@@ -76,6 +76,20 @@ export const getRoom = async (req, res, next) => {
         next(errorMessage(500,"搜尋失敗，找不到其ID",error)) 
     }
 }
+////
+export const getRoomData = async (req, res, next) => {
+    const roomNumberIdArray=req.params.id.split(",")
+    try{
+        const getRoomsList = await Promise.all(roomNumberIdArray.map(roomNumberId =>
+            Room.find({ "roomNumbers._id":roomNumberId}) )
+        )
+        //用set(array)來刪除重複的房間資料
+        res.status(200).json([...new Set(getRoomsList[0])])
+    } catch (error) {
+        next(errorMessage(500,"搜尋失敗，找不到其ID",error)) 
+    }
+}
+///
 export const getAllRooms = async (req, res, next) => {
     try{
         const getRooms= await Room.find()

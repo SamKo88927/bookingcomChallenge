@@ -20,6 +20,15 @@ export const getOrder = async(req,res,next)=>{
         next(errorMessage(500,"找不到訂單資料，請檢查使否有此id",error)) //後來我們想要客製化的
     }
 }
+//更新版 將orders中的資料都改成想要爬梳的資料
+export const getOrderData = async(req,res,next)=>{
+    try{
+        const OrdersList = await Order.find()
+        res.status(200).json(OrdersList)
+    }catch(error){
+        next(errorMessage(500,"無法抓取所有訂單資料",error)) 
+    }
+}
 export const updatedOrder =async(req,res,next)=>{
     const id = req.params.id;
     const body = req.body

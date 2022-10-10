@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
 const OrderSchema = new mongoose.Schema({
-        userId:{type:String, required:true}, //紀錄誰下這個訂單的
-        hotelId:{type:String, required:true}, //紀錄這個訂單的飯店編號
-        RoomNumberId: //一次紀錄一個訂房的房間，但可以一次下訂許多的房間
+    //改
+        userName:{type:String, required:true}, //紀錄誰下這個訂單的
+        hotelName:{type:String, required:true}, //紀錄這個訂單的飯店編號
+        hotelphotos:{type:String, required:true}, //紀錄這個訂單的飯店照片
+        RoomNumberName: //一次紀錄一個訂房的房間，但可以一次下訂許多的房間
            [{//紀錄這個訂單的房間編號
                     type:String, required:true
             }
