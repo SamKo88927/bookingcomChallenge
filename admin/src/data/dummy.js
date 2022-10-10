@@ -667,7 +667,7 @@ export const gridHotelImage = (props) => (
   </div>
 );
 export const gridHotelStatus = (props) => (
-  props.popularHotels == true ?
+  props.popularHotel == true ?
     <button
       type="button"
       style={{ background: "#E14761" }}
