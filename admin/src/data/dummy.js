@@ -661,7 +661,7 @@ export const gridHotelImage = (props) => (
   <div>
     <img
       className="rounded-xl h-20 ml-3 "
-      src={props.photos[0]}
+      src={Hotel1}
       alt="order-item"
     />
   </div>
@@ -897,8 +897,7 @@ export const ordersGrid = [
   },
   {
     headerText: '訂單狀態',
-    template: gridHotelStatus,
-    field: 'OrderItems',
+    field: 'Status',
     textAlign: 'Center',
     width: '120',
   },
@@ -913,10 +912,10 @@ export const ordersGrid = [
 export const ordersData = [
   {
     OrderID: 10248,
-    userName: 'SamKo',
+    userId: 'SamKo',
     TotalPrice: 99999,
-    roomTitle: '頂級商務套房 七季公寓酒店',
-    Dates: '2022/10/10-2022/10/11',
+    RoomNumberId: '頂級商務套房 七季公寓酒店',
+   ReservationDates: '2022/10/10-2022/10/11',
     Status: '待付款',
     StatusBg: '#FB9678',
     HotelImage:
@@ -924,10 +923,10 @@ export const ordersData = [
   },
   {
     OrderID: 10248,
-    userName: 'SamKo',
+    userId: 'SamKo',
     TotalPrice: 99999,
-    roomTitle: '頂級商務套房 七季公寓酒店',
-    Dates: '2022/10/10-2022/10/11',
+    RoomNumberId: '頂級商務套房 七季公寓酒店',
+   ReservationDates: '2022/10/10-2022/10/11',
     Status: '待付款',
     StatusBg: '#FB9678',
     HotelImage:
@@ -935,10 +934,10 @@ export const ordersData = [
   },
   {
     OrderID: 10248,
-    userName: 'SamKo',
+    userId: 'SamKo',
     TotalPrice: 99999,
-    roomTitle: '頂級商務套房 七季公寓酒店',
-    Dates: '2022/10/10-2022/10/11',
+    RoomNumberId: '頂級商務套房 七季公寓酒店',
+   ReservationDates: '2022/10/10-2022/10/11',
     Status: '待付款',
     StatusBg: '#FB9678',
     HotelImage:
@@ -946,10 +945,10 @@ export const ordersData = [
   },
   {
     OrderID: 10248,
-    userName: 'SamKo',
+    userId: 'SamKo',
     TotalPrice: 99999,
-    roomTitle: '頂級商務套房 七季公寓酒店',
-    Dates: '2022/10/10-2022/10/11',
+    RoomNumberId: '頂級商務套房 七季公寓酒店',
+   ReservationDates: '2022/10/10-2022/10/11',
     Status: '待付款',
     StatusBg: '#FB9678',
     HotelImage:
