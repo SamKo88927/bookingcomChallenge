@@ -149,7 +149,7 @@ const Reservation = ({ openSetting, hotelid, DatesLength }) => {
                                     </div>)
                                 )}
                             </div>
-                            <button className='reservationbtn' disabled={roomNumber.length == 0} onClick={handleClick}> 現在預訂</button>
+                            <button className='reservationbtn' disabled={roomNumber.length == 0|| createOrderState} onClick={handleClick}> 現在預訂</button>
                         </div>
                     </div >
                 </div>
