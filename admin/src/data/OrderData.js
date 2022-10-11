@@ -67,6 +67,7 @@ const priceList =[]
     </div>
   )
 };
+
 export const gridOrderStatus = (props) => (
   <>
     {props.status === "待確認訂單" ?

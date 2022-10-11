@@ -8,7 +8,6 @@ import useFetch from '../hooks/useFetch';
 import { hotelsGrid } from '../data/HotelData';
 const HotelsList = () => {
   const {data,loading,error} =useFetch("/hotels")
-  console.log(data)
   const editing = { allowDeleting: true, allowEditing: true };
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">

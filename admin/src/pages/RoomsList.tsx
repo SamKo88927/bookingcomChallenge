@@ -9,7 +9,6 @@ import { roomsGrid } from '../data/RoomData';
 const RoomsList = () => {
   const toolbarOptions = ['Search'];
   const {data,loading,error} =useFetch("/rooms")
-  console.log(data)
   const editing = { allowDeleting: true, allowEditing: true };
 
   return (

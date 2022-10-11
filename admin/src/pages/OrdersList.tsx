@@ -11,7 +11,6 @@ import useFetch from '../hooks/useFetch';
 const OrdersList = () => {
   //Api完整url是 http://localhost:5000/api/v1/order 
   const {data,loading,error} =useFetch("/order")
-  console.log(data)
   const editing = { allowDeleting: true, allowEditing: true };
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">

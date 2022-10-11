@@ -14,9 +14,9 @@ export const gridRoomNumbers = (props) =>  (
         
            <div>{props.roomNumbers.map(
             (roomNumbers,i)=>
-            <>
-            {i==0 ? roomNumbers.number : ","+roomNumbers.number}
-            </>
+            <div key={i}>
+            {roomNumbers.number}
+            </div>
             )
             }</div>
    

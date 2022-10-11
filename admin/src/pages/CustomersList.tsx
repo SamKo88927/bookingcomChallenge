@@ -11,7 +11,6 @@ const CustomersList = () => {
   const toolbarOptions = ["Print",'Delete',"Search"];
   const editing = { allowDeleting: true, allowEditing: true };
   const {data,loading,error} =useFetch("/users")
-  console.log(data)
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="管理列表" title="顧客分頁" />
