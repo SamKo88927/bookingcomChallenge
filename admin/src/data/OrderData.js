@@ -1,6 +1,7 @@
 import useFetch from "../hooks/useFetch";
 import { format, parseISO } from 'date-fns';
 import { ReservationDatesAndPrice } from "../datesCalculate";
+
 export const gridOrderhotelsImage = (props) => {
   const { data, loading, error } = useFetch(`/hotels/find/${props.hotelId}`)
   return (
@@ -17,87 +18,96 @@ export const gridOrderhotelsImage = (props) => {
   )
 };
 export const gridOrderRoomName = (props) => {
-  const Url=`/rooms/findroom/${props.RoomNumberId.map((Id)=>Id)}`
+  const Url = `/rooms/findroom/${props.RoomNumberId.map((Id) => Id)}`
   const { data, loading, error } = useFetch(Url)
   return (
     <div>
       {
         loading ? <>載入中</> :
-         <div>{data.map((room)=>room.title)}</div>
+          <div>{data.map((room,i) => <div key={i}> {room.title} </div>)}</div>
       }
     </div>
   )
 };
+
 export const gridOrderReservationDates = (props) => (
-    <div>
-      {format(parseISO(props.ReservationDates[0].startDate), "MM/dd/yyyy")}- {format(parseISO(props.ReservationDates[0].endDate), "MM/dd/yyyy")}
-    </div>
+  <div>
+    {format(parseISO(props.ReservationDates[0].startDate), "MM/dd/yyyy")}-
+    {format(parseISO(props.ReservationDates[0].endDate), "MM/dd/yyyy")}
+  </div>
 );
 export const gridOrderUserName = (props) => {
-  const Url=`/users/${props.userId}`
+  const Url = `/users/${props.userId}`
   const { data, loading, error } = useFetch(Url)
   return (
     <div>
       {
         loading ? <>載入中</> :
-         <div>{data.username}</div>
+          <div>{data.username}</div>
+      }
+    </div>
+  )
+};
+
+export const gridOrderPrice = (props) => {
+  const Url = `/rooms/findroom/${props.RoomNumberId.map((Id) => Id)}`
+  const { data, loading, error } = useFetch(Url)
+const priceList =[]
+  data.map((room) =>{
+  const { totalRoomsPrice } = ReservationDatesAndPrice
+    (props.ReservationDates[0].startDate, props.ReservationDates[0].endDate, room.price)
+    priceList.push(totalRoomsPrice)
+  })
+  return (
+    <div>
+      {
+        loading ? <>載入中</> :
+          <div>{priceList.map((price,i) => <div key={i}> {price}</div>)}</div>
       }
     </div>
   )
 };
 export const gridOrderStatus = (props) => (
   <>
-  {props.status === "待確認訂單" ? 
-    <button
-    type="button"
-    style={{ background:"#FF3939"}}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-    >
-    {props.status}
-    </button> :
-     <>{props.status}</>
-  }
+    {props.status === "待確認訂單" ?
+      <button
+        type="button"
+        style={{ background: "#FF3939" }}
+        className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+      >
+        {props.status}
+      </button> :
+      <>{props.status}</>
+    }
   </>
 );
-export const gridOrderPrice = (props) => {
-  const Url=`/rooms/findroom/${props.RoomNumberId.map((Id)=>Id)}`
-  const { data, loading, error } = useFetch(Url)
-  const {totalRoomsPrice}=ReservationDatesAndPrice
-  (props.ReservationDates[0].startDate,props.ReservationDates[0].endDate,data.map((room)=>room.price))
-  return (
-    <div>
-      {
-        loading ? <>載入中</> :
-         <div>{totalRoomsPrice}</div>
-      }
-    </div>
-  )
-};
+
 export const ordersGrid = [
   {
     headerText: "飯店照片",
-    template:gridOrderhotelsImage,
+    template: gridOrderhotelsImage,
     textAlign: 'Center',
     width: '150',
   },
   {
     template:gridOrderRoomName,
+    // field: "RoomNumberId",
     headerText: '房型名稱',
     width: '200',
     editType: 'dropdownedit',
   },
   {
-    template:gridOrderReservationDates,
+    template: gridOrderReservationDates,
     headerText: '住宿日期',
     width: '200',
   },
   {
-    template:gridOrderUserName,
+    template: gridOrderUserName,
     headerText: '用戶名',
     width: '150',
   },
   {
-    template:gridOrderPrice,
+    template: gridOrderPrice,
     headerText: '總價格',
     format: 'C2',
     editType: 'numericedit',
@@ -105,7 +115,7 @@ export const ordersGrid = [
   },
   {
     headerText: '訂單狀態',
-    template:gridOrderStatus,
+    template: gridOrderStatus,
     textAlign: 'Center',
     width: '120',
   },

@@ -19,7 +19,9 @@ router.delete("/:hotelid/:id",verifyAdmin,deleteRoom)
 //是因為會多此一舉roomid來抓
 router.get("/find/:id",getRoom)
 
+//配合admin的爬梳而創立用roomNumberID來抓完整roomId資料
 router.get("/findroom/:id",getRoomData)
+
 //抓取rooms所有資料
 router.get("/",getAllRooms)
 //抓取一個hotel 的rooms所有資料
