@@ -20,6 +20,9 @@ module.exports = {
       borderWidth: {
         1: '1px',
       },
+      minWidth: {
+        "1/2": '50%',
+      },
       borderColor: {
         color: 'rgba(0, 0, 0, 0.1)',
       },
@@ -41,6 +44,7 @@ module.exports = {
       backgroundImage: {
         'hero-pattern':
           "url('../src/data/earningbg.gif')",
+        'Crud-hotel': "url('../src/data/crud_hotel_bg2.png')",
       },
     },
   },

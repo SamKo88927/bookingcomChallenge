@@ -3,6 +3,13 @@ export { default as OrdersList } from './OrdersList';
 export { default as HotelsList } from './HotelsList';
 export { default as RoomsList } from './RoomsList';
 export { default as CustomersList } from './CustomersList';
+
+// export { default as Hotels } from './adminpage/Hotels';
+// export { default as Rooms } from './adminpage/Rooms';
+// export { default as Users } from './adminpage/Users';
+// export { default as Auth } from './adminpage/Auth';
+
+
 export { default as Area } from './Charts/Area';
 export { default as Bar } from './Charts/Bar';
 export { default as ColorMapping } from './Charts/ColorMapping';

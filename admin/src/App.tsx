@@ -8,6 +8,7 @@ import { Ecommerce,RoomsList, Stacked, Pyramid, CustomersList, Line, Area, Bar, 
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
+import Hotels from './pages/Hotels';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -64,17 +65,18 @@ const App = () => {
 
               <Routes>
                 {/* 訂房管理列表  */}
-                <Route path="/" element={(<Ecommerce />)} />
-                <Route path="/orderslist" element={(<OrdersList/>)} />
-                <Route path="/hotelslist" element={(<HotelsList/>)} />
+                <Route path="/" element={<Ecommerce />} />
+                <Route path="/orderslist" element={<OrdersList/>} />
+                <Route path="/hotelslist" element={<HotelsList/>} />
 
-                <Route path="/roomslist" element={(<RoomsList/>)} />
-                <Route path="/userslist" element={(<CustomersList/>)} />
+                <Route path="/roomslist" element={<RoomsList/>} />
+                <Route path="/userslist" element={<CustomersList/>} />
 
                 {/* 管理員專區  */}
-                <Route path="/orders" element={<OrdersList/>} />
-                <Route path="/employees" element={<RoomsList/>} />
-                <Route path="/customers" element={<CustomersList />} />
+                <Route path="/hotels" element={<Hotels/>} />
+                {/* <Route path="/rooms" element={<Rooms/>} />
+                <Route path="/users" element={<Users/>} />
+                <Route path="/auth" element={<Auth />} /> */}
                 {/* charts  */}
                 <Route path="/line" element={<Line />} />
                 <Route path="/area" element={<Area />} />

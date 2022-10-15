@@ -9,7 +9,6 @@ import HotelsList from "./pages/HotelsList";
 import Hotel from "./pages/Hotel";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
 function App() {
 
   return (

@@ -310,22 +310,22 @@ export const links = [
     title: '管理員專區',
     links: [
       {
-        name: "hotel",
+        name: "hotels",
         labelname: '飯店管理',
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: "room",
+        name: "rooms",
         labelname: '房型管理',
         icon: <IoMdContacts />,
       },
       {
-        name: "user",
+        name: "users",
         labelname: '顧客管理',
         icon: <RiContactsLine />,
       },
       {
-        name: "auth",
+        name: "auths",
         labelname: '管理員管理',
         icon: <RiContactsLine />,
       },
