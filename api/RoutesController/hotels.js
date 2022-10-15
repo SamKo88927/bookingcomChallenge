@@ -50,7 +50,7 @@ export const getAllHotels = async(req,res,next)=>{
               cheapestPrice:{$gt:lowestPrice || 0,
               $lt:highestPrice || 9999} //這邊一定要這樣打因為涉及到兩個fetch 如果沒有填｜｜會出現沒有值的問題
             }
-        ).limit(7) //讓他回傳資料最多就七個
+        )//讓他回傳資料最多就七個
         res.status(200).json(hotelsList)
     }catch(error){
         next(errorMessage(500,"無法抓取所有飯店資料",error)) 
