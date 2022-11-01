@@ -1,6 +1,6 @@
 # bookingChallenge nodejs Api
 
-### 鐵人挑戰賽Day17版本
+### 鐵人挑戰賽Day17版本 已更新JWT_Token next()問題
 
 使用前注意 .env folder環境變數要記得 改為自己的mongoDB環境變數
 
